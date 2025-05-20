@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eid Wish Card</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      background: url('imgs/images (2).jpg') center center / cover no-repeat fixed;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    
+    .loader {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+
+    .bubble {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.25); /* removed space after rgba */
+      animation: animate_4010 8s ease-in-out infinite;
+    }
+
+    .bubble:nth-child(1) {
+      /* Make sure the first bubble is targeted */
+      top: 0;
+      left: 0;
+    }
+
+    .bubble:nth-child(2) {
+      position: relative;
+      zoom: 0.45;
+      left: -10px;
+      top: -100px;
+      animation-delay: -4s;
+    }
+
+    .bubble:nth-child(3) {
+      position: relative;
+      zoom: 0.45;
+      right: -80px;
+      top: -300px;
+      animation-delay: -6s;
+    }
+
+    .bubble:nth-child(4) {
+      position: relative;
+      zoom: 0.35;
+      left: -120px;
+      bottom: -200px;
+      animation-delay: -3s;
+    }
+
+    .bubble:nth-child(5) {
+      position: relative;
+      zoom: 0.5;
+      left: 0px;
+      top: 200px;
+      animation-delay: -5s;
+    }
+
+    @keyframes animate_4010 {
+      0%, 100% {
+        transform: translateY(-10px);
+      }
+      50% {
+        transform: translateY(50px);
+      }
+    }
+
+    .bubble::before {
+      content: '';
+      position: absolute;
+      top: 50px;
+      left: 45px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #fff;
+      z-index: 10;
+      filter: blur(2px);
+    }
+
+    .bubble::after {
+      content: '';
+      position: absolute;
+      top: 90px;
+      left: 80px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      z-index: 10;
+      filter: blur(2px);
+    }
+
+    .bubble span {
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .bubble span:nth-child(1) {
+      inset: 10px;
+      border-left: 15px solid #0fb4ff;
+      filter: blur(8px);
+    }
+
+    .bubble span:nth-child(2) {
+      inset: 10px;
+      border-right: 15px solid #ff4484;
+      filter: blur(8px);
+    }
+
+    .bubble span:nth-child(3) {
+      inset: 10px;
+      border-top: 15px solid #ffeb3b;
+      filter: blur(8px);
+    }
+
+    .bubble span:nth-child(4) {
+      inset: 30px;
+      border-left: 15px solid #ff4484;
+      filter: blur(12px);
+    }
+
+    .bubble span:nth-child(5) {
+      inset: 10px;
+      border-bottom: 10px solid #fff;
+      filter: blur(10px);
+      transform: rotate(360deg);
+    }
+
+    /* Card box styles (unchanged) */
+    .card-box {
+      display: none;
+      background: url('imgs/download (4).jpg') no-repeat center center;
+      background-size: cover;
+      padding: 40px 30px;
+      margin-top: 10px;
+      border-radius: 15px;
+      color: white;
+      text-align: center;
+      box-shadow: 0px 10px 20px rgba(232, 250, 74, 0.5);
+      animation: revealCard 1.5s ease-out forwards;
+      max-width: 400px;
+      transform: scale(0.8) rotateY(20deg);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    @keyframes revealCard {
+      from {
+        opacity: 0;
+        transform: scale(0.5) rotateY(90deg);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) rotateY(0);
+      }
+    }
+
+    /* Hover effect */
+    .card-box:hover {
+      transform: scale(1.05) rotateY(0deg);
+      box-shadow: 0px 12px 30px rgba(255, 255, 0, 0.7);
+    }
+
+    .card-box img {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid white;
+      box-shadow: 0px 0px 10px white;
+      animation: imageReveal 2s ease-out forwards;
+      transform: scale(0.8) rotate(-10deg);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    /* Animation on load */
+    @keyframes imageReveal {
+      0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-180deg);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    /* Hover effect */
+    .card-box img:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0px 0px 20px #fff, 0px 0px 30px green;
+    }
+
+    .card-box h4 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      animation: reveal 1.5s ease-out forwards;
+      transform: scale(0.8) rotateX(90deg);
+      transition: transform 0.4s ease, color 0.3s ease;
+    }
+
+    .card-box p {
+      font-size: 18px;
+      margin-bottom: 10px;
+      animation: reveal 1.8s ease-out forwards;
+      transform: scale(0.8) rotateX(90deg);
+      transition: transform 0.4s ease, color 0.3s ease;
+    }
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: scale(0.5) rotateX(90deg);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) rotateX(0);
+      }
+    }
+
+    /* Hover effects when card-box is hovered */
+    .card-box:hover h4,
+    .card-box:hover p {
+      transform: scale(1.05);
+      color: #ffeb3b; /* golden yellow */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="loader" id="loader">
+    <div class="bubble">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="bubble">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="bubble">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="bubble">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="bubble">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div class="card-box" id="wishCard">
+    <img id="previewImage" src="imgs/download.jpg" alt="Image" />
+    <h4><span id="receiverName">My Dear Friend</span>,</h4>
+    <p>Eid Mubarak! May this Eid bring peace, joy and endless blessings to your life.</p>
+    <p><strong>From: <span id="senderName">Asma Haider</span></strong></p>
+  </div>
+
+  <script>
+    window.onload = function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('showCard') === 'true') {
+        const loader = document.getElementById('loader');
+        const card = document.getElementById('wishCard');
+
+        loader.style.display = 'block';
+        card.style.display = 'none';
+
+        setTimeout(() => {
+          loader.style.display = 'none';
+          card.style.display = 'block';
+        }, 3000);
+      }
+    };
+  </script>
+</body>
+</html>
