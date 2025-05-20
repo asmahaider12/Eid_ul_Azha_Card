@@ -292,8 +292,8 @@
 
   <script>
     window.onload = function () {
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('showCard') === 'true') {
+     // const urlParams = new URLSearchParams(window.location.search);
+      //if (urlParams.get('showCard') === 'true') {
         const loader = document.getElementById('loader');
         const card = document.getElementById('wishCard');
 
@@ -304,7 +304,7 @@
           loader.style.display = 'none';
           card.style.display = 'block';
         }, 3000);
-      }
+    //  }
     };
   </script>
 </body>
